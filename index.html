@@ -35,13 +35,35 @@
 <script src="script.js"></script>
 
 <script>
+// 🎵 Música inicia al primer click
 document.addEventListener('click', function() {
     var audio = document.getElementById('musica');
     if (audio.paused) {
         audio.play();
     }
 }, { once: true });
+
+// 📸 Fotos aparecen una por una cada 1.5 segundos
+document.addEventListener("DOMContentLoaded", function () {
+
+    const fotos = document.querySelectorAll(".foto");
+    let index = 0;
+
+    // Ocultar todas al inicio
+    fotos.forEach(f => f.style.opacity = "0");
+
+    function mostrarSiguiente() {
+        fotos.forEach(f => f.style.opacity = "0");
+        fotos[index].style.opacity = "1";
+        index = (index + 1) % fotos.length;
+    }
+
+    mostrarSiguiente();
+    setInterval(mostrarSiguiente, 1500);
+
+});
 </script>
 
 </body>
 </html>
+
