@@ -3,15 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Knew you would say yes!</title>
-    <link rel="stylesheet" href="./yes_style.css">
+    <title>Sabía que dirías que sí 💘</title>
+    <link rel="stylesheet" href="yes_style.css">
 </head>
+
 <body>
-    <div class="container">
-        <h1 class="header_text">Knew you would say yes!</h1>
-        <div class="gif_container">
-            <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmo3c3l5ODh3ZGN6NHhhaDE2Mjg1ZjkwOXczdDFxbWM3dTBtaW9zaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/9XY4f3FgFTT4QlaYqa/giphy.gif">
-        </div>
+
+<div class="container">
+
+    <h1 class="header_text">
+        Sabía que dirías que sí Mi more mío 💖
+    </h1>
+
+    <p class="sub_text">
+        Milo me lo dijo ejjejej 😌❤️
+    </p>
+
+    <!-- FOTOS -->
+    <div class="galeria">
+        <img src="foto1.jpeg">
+        <img src="foto2.jpeg">
+        <img src="foto3.jpeg">
+        <img src="foto4.jpeg">
     </div>
+
+</div>
+
+<!-- MUSICA (continúa en esta página) -->
+<audio id="musica" autoplay loop>
+    <source src="Stephen Sanchez - Until I Found You (Official Video).mp3" type="audio/mpeg">
+</audio>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var audio = document.getElementById('musica');
+    audio.play().catch(function(e) {
+        console.log("Autoplay bloqueado");
+    });
+});
+</script>
+
 </body>
 </html>
