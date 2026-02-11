@@ -55,8 +55,8 @@ body {
     margin-top: 20px;
   }
 @keyframes fondoAnimado {
-    0%   { background-image: url("foto1.jpg"); }
-    33%  { background-image: url("foto2.jpg"); }
-    66%  { background-image: url("foto3.jpg"); }
-    100% { background-image: url("foto1.jpg"); }
+    0%   { background-image: url("foto1.jpeg"); }
+    33%  { background-image: url("foto2.jpeg"); }
+    66%  { background-image: url("foto3.jpeg"); }
+    100% { background-image: url("foto1.jpeg"); }
 }
