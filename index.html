@@ -6,30 +6,42 @@
     <title>Quieres ser mi San Valentin more?</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <div class="container">
-        <h1>Quieres ser mi San valentin more?</h1>
-        <div class="buttons">
-            <button class="yes-button" onclick="handleYesClick()">Yes</button>
-            <button class="no-button" onclick="handleNoClick()">No</button>
-        </div>
-        <div class="gif_container">
-    <img src="gatitos.gif" alt="Sticker">
-</div>
-        <div class="foto-marco"></div>
+
+<div class="container">
+    <h1>Quieres ser mi San valentin more?</h1>
+
+    <!-- FOTOS ALREDEDOR -->
+    <div class="foto foto1"></div>
+    <div class="foto foto2"></div>
+    <div class="foto foto3"></div>
+    <div class="foto foto4"></div>
+
+    <div class="buttons">
+        <button class="yes-button" onclick="handleYesClick()">Yes</button>
+        <button class="no-button" onclick="handleNoClick()">No</button>
     </div>
-    <script src="script.js"></script>
-</body>
-    <audio id="musica" loop>
+
+    <div class="gif_container">
+        <img src="gatitos.gif" alt="Sticker">
+    </div>
+</div>
+
+<audio id="musica" loop>
     <source src="Stephen Sanchez - Until I Found You (Official Video).mp3" type="audio/mpeg">
 </audio>
 
+<script src="script.js"></script>
+
 <script>
-  document.addEventListener('click', function() {
-    var audio = document.getElementById('musica'); // Aquí busca el ID "musica", no el nombre de la canción
+document.addEventListener('click', function() {
+    var audio = document.getElementById('musica');
     if (audio.paused) {
-      audio.play();
+        audio.play();
     }
-  }, { once: true });
+}, { once: true });
 </script>
+
+</body>
 </html>
