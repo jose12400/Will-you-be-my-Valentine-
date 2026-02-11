@@ -10,7 +10,7 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    animation: fondoAnimado 4.5s infinite;
+    animation: fondoAnimado 6s infinite;
 }
 
   
@@ -56,7 +56,9 @@ body {
   }
 @keyframes fondoAnimado {
     0%   { background-image: url("foto1.jpeg"); }
-    33%  { background-image: url("foto2.jpeg"); }
-    66%  { background-image: url("foto3.jpeg"); }
+    25%  { background-image: url("foto2.jpeg"); }
+    50%  { background-image: url("foto3.jpeg"); }
+    75%  { background-image: url("foto4.jpeg"); }
     100% { background-image: url("foto1.jpeg"); }
 }
+
