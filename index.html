@@ -18,7 +18,17 @@
         </div>
     </div>
     <script src="script.js"></script>
-</body><audio autoplay loop>
-    <source src="https://www.dropbox.com/scl/fi/ad56y0pb5fy8mng2pyzjj/RECUERDOS-DE-JULC-N-_-CHUTO-ENAMORADO-hasta-los-huesos-_-Tunantada-2amc8FzJINA.mp3?rlkey=p7f7c46r8nngcbecuv9y0q09u&st=x8x7965u&dl=1" type="audio/mpeg">
+</body>
+    <audio id="musica" loop>
+    <source src="Stephen Sanchez - Until I Found You (Official Video).mp3" type="audio/mpeg">
 </audio>
+
+<script>
+  document.addEventListener('click', function() {
+    var audio = document.getElementById('musica'); // Aquí busca el ID "musica", no el nombre de la canción
+    if (audio.paused) {
+      audio.play();
+    }
+  }, { once: true });
+</script>
 </html>
