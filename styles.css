@@ -1,4 +1,4 @@
-/* ===== ESTILO GENERAL ===== */
+/* ===== GENERAL ===== */
 body {
     margin: 0;
     padding: 0;
@@ -7,11 +7,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    overflow: visible;
+    min-height: 100vh;
 }
 
-/* CONTENEDOR PRINCIPAL */
+/* CONTENEDOR */
 .container {
     position: relative;
     text-align: center;
@@ -60,11 +59,11 @@ button:hover {
     margin-top: 20px;
 }
 
-/* ===== FOTOS GRANDES (ESCRITORIO) ===== */
+/* ===== FOTOS EN PC (ALREDEDOR) ===== */
 .foto {
     position: absolute;
-    width: 350px;
-    height: 350px;
+    width: 320px;
+    height: 320px;
     background-size: cover;
     background-position: center;
     border: 10px solid white;
@@ -74,39 +73,38 @@ button:hover {
 
 .foto1 {
     background-image: url("foto1.jpeg");
-    top: -320px;
-    left: -420px;
+    top: -280px;
+    left: -380px;
     transform: rotate(-10deg);
 }
 
 .foto2 {
     background-image: url("foto2.jpeg");
-    top: -320px;
-    right: -420px;
+    top: -280px;
+    right: -380px;
     transform: rotate(10deg);
 }
 
 .foto3 {
     background-image: url("foto3.jpeg");
-    bottom: -320px;
-    left: -420px;
+    bottom: -280px;
+    left: -380px;
     transform: rotate(8deg);
 }
 
 .foto4 {
     background-image: url("foto4.jpeg");
-    bottom: -320px;
-    right: -420px;
+    bottom: -280px;
+    right: -380px;
     transform: rotate(-8deg);
 }
 
-/* ===== DISEÑO RESPONSIVE PARA CELULAR ===== */
+/* ===== CELULAR ===== */
 @media (max-width: 768px) {
 
     body {
-        height: auto;
-        padding: 60px 0;
-        align-items: center;
+        align-items: flex-start;
+        padding-top: 40px;
     }
 
     .container {
@@ -118,31 +116,23 @@ button:hover {
         padding: 0 20px;
     }
 
-    /* Fotos más pequeñas */
+    /* Las fotos dejan de ser absolute */
     .foto {
-        width: 160px;
-        height: 160px;
-        border: 6px solid white;
+        position: relative;
+        width: 90%;
+        height: 200px;
+        margin: 15px auto;
+        transform: none;
     }
 
-    .foto1 {
-        top: -180px;
-        left: -30px;
-    }
-
-    .foto2 {
-        top: -180px;
-        right: -30px;
-    }
-
-    .foto3 {
-        bottom: -180px;
-        left: -30px;
-    }
-
+    .foto1,
+    .foto2,
+    .foto3,
     .foto4 {
-        bottom: -180px;
-        right: -30px;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
     }
 
     .gif_container img {
