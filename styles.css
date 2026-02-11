@@ -7,12 +7,8 @@ body {
     font-family: 'Arial', sans-serif;
     flex-direction: column;
 
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    animation: fondoAnimado 6s infinite;
+    background: linear-gradient(135deg, #ffdde1, #ee9ca7);
 }
-
   
   .container {
     text-align: center;
@@ -61,4 +57,23 @@ body {
     75%  { background-image: url("foto4.jpeg"); }
     100% { background-image: url("foto1.jpeg"); }
 }
+.foto-marco {
+    width: 300px;
+    height: 400px;
+    border: 10px solid white;
+    border-radius: 20px;
+    box-shadow: 0px 15px 30px rgba(0,0,0,0.3);
+    background-size: cover;
+    background-position: center;
+    animation: cambiarFoto 6s infinite;
+    margin-top: 20px;
+}
+@keyframes cambiarFoto {
+    0%   { background-image: url("foto1.jpeg"); }
+    25%  { background-image: url("foto2.jpeg"); }
+    50%  { background-image: url("foto3.jpeg"); }
+    75%  { background-image: url("foto4.jpeg"); }
+    100% { background-image: url("foto1.jpeg"); }
+}
+
 
