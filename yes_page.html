@@ -3,45 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sabía que dirías que sí 💘</title>
+    <title>Sabía que dirías que sí</title>
     <link rel="stylesheet" href="yes_style.css">
 </head>
 
 <body>
 
 <div class="container">
-
     <h1 class="header_text">
-        Sabía que dirías que sí Mi more mío 💖
+        Sabía que dirías que sí Mi more mio. Milo me lo dijo ejjejej!
     </h1>
 
-    <p class="sub_text">
-        Milo me lo dijo ejjejej 😌❤️
-    </p>
-
-    <!-- FOTOS -->
-    <div class="galeria">
-        <img src="foto1.jpeg">
-        <img src="foto2.jpeg">
-        <img src="foto3.jpeg">
-        <img src="foto4.jpeg">
-    </div>
-
+    <!-- FOTOS ALREDEDOR -->
+    <div class="foto foto1"></div>
+    <div class="foto foto2"></div>
+    <div class="foto foto3"></div>
+    <div class="foto foto4"></div>
 </div>
 
-<!-- MUSICA (continúa en esta página) -->
-<audio id="musica" autoplay loop>
+<!-- 🎵 MISMA MÚSICA -->
+<audio id="musica" loop autoplay>
     <source src="Stephen Sanchez - Until I Found You (Official Video).mp3" type="audio/mpeg">
 </audio>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    var audio = document.getElementById('musica');
-    audio.play().catch(function(e) {
-        console.log("Autoplay bloqueado");
-    });
+// 📸 Fotos aparecen una por una cada 1.5 segundos
+document.addEventListener("DOMContentLoaded", function () {
+
+    const fotos = document.querySelectorAll(".foto");
+    let index = 0;
+
+    fotos.forEach(f => f.style.opacity = "0");
+
+    function mostrarSiguiente() {
+        fotos.forEach(f => f.style.opacity = "0");
+        fotos[index].style.opacity = "1";
+        index = (index + 1) % fotos.length;
+    }
+
+    mostrarSiguiente();
+    setInterval(mostrarSiguiente, 1500);
+
 });
 </script>
 
 </body>
 </html>
+
