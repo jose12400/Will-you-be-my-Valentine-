@@ -89,13 +89,13 @@ let messageIndex = 0;
 function handleNoClick() {
     // Cambia mensaje del botón No
     const noButton = document.querySelector('.no-button');
-    const yesButton = document.querySelector('.yes-button');
+    const siButton = document.querySelector('.si-button');
     noButton.textContent = messages[messageIndex];
     messageIndex = (messageIndex + 1) % messages.length;
 
     // Aumenta tamaño del botón Si
-    const currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
-    yesButton.style.fontSize = `${currentSize * 1.5}px`;
+    const currentSize = parseFloat(window.getComputedStyle(siButton).fontSize);
+    siButton.style.fontSize = `${currentSize * 1.5}px`;
 
     // Cambia sticker principal a uno aleatorio
     const sticker = document.getElementById("stickerPrincipal");
