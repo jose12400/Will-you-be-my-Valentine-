@@ -24,16 +24,16 @@
     </div>
 
     <div class="gif_container">
-        <!-- Sticker que cambia al hacer click en No -->
-        <img id="stickerPrincipal" src="gatito.gif" alt="Sticker">
+        <!-- Sticker principal que cambia al hacer click en No -->
+        <img id="stickerPrincipal" src="gatitos.gif" alt="Sticker">
     </div>
 </div>
 
 <!-- STICKERS FLOTANTES -->
-<img src="gatito.gif" class="sticker sticker1">
-<img src="gatito2.gif" class="sticker sticker2">
-<img src="gatito3.gif" class="sticker sticker3">
-<img src="gatito4.gif" class="sticker sticker4">
+<img src="gatitos.gif" class="sticker sticker1">
+<img src="gatitos2.gif" class="sticker sticker2">
+<img src="gatitos3.gif" class="sticker sticker3">
+<img src="gatitos4.gif" class="sticker sticker4">
 
 <audio id="musica" loop>
     <source src="Stephen Sanchez - Until I Found You (Official Video).mp3" type="audio/mpeg">
@@ -44,13 +44,11 @@
 <script>
 // 🎵 Música inicia al primer click
 document.addEventListener('click', function() {
-    var audio = document.getElementById('musica');
-    if (audio.paused) {
-        audio.play();
-    }
+    const audio = document.getElementById('musica');
+    if (audio.paused) audio.play();
 }, { once: true });
 
-// 📸 Fotos aparecen una por una cada 1.5 segundos
+// 📸 Fotos alrededor aparecen una por una cada 1.5s
 document.addEventListener("DOMContentLoaded", function () {
     const fotos = document.querySelectorAll(".foto");
     let index = 0;
@@ -66,25 +64,56 @@ document.addEventListener("DOMContentLoaded", function () {
     setInterval(mostrarSiguiente, 1500);
 });
 
-// 🐾 Cambiar sticker al hacer click en "No"
+// 🐾 Stickers disponibles para el principal (al click en No)
 const stickers = [
-    "gatito.gif",
-    "gatito2.gif",
-    "gatito3.gif",
-    "gatito4.gif",
-    "gatito5.gif", // agrega todos los que subiste
-    "gatito6.gif"
+    "gatitos.gif",
+    "gatitos2.gif",
+    "gatitos3.gif",
+    "gatitos4.gif"
 ];
 
+// 💬 Mensajes dinámicos para botón No
+const messages = [
+    "Are you sure?",
+    "Really sure??",
+    "Are you positive?",
+    "Pookie please...",
+    "Just think about it!",
+    "If you say no, I will be really sad...",
+    "I will be very sad...",
+    "I will be very very very sad...",
+    "Ok fine, I will stop asking...",
+    "Just kidding, say yes please! ❤️"
+];
+let messageIndex = 0;
+
+// ===== Función para botón No =====
 function handleNoClick() {
+    // Cambia mensaje del botón No
+    const noButton = document.querySelector('.no-button');
+    const yesButton = document.querySelector('.yes-button');
+    noButton.textContent = messages[messageIndex];
+    messageIndex = (messageIndex + 1) % messages.length;
+
+    // Aumenta tamaño del botón Yes
+    const currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
+    yesButton.style.fontSize = `${currentSize * 1.5}px`;
+
+    // Cambia sticker principal a uno aleatorio
     const sticker = document.getElementById("stickerPrincipal");
     let nuevo;
     do {
         nuevo = stickers[Math.floor(Math.random() * stickers.length)];
-    } while (nuevo === sticker.src.split("/").pop()); // evita repetir el mismo
+    } while (nuevo === sticker.src.split("/").pop()); // evita repetir
     sticker.src = nuevo;
+}
+
+// ===== Función para botón Yes =====
+function handleYesClick() {
+    window.location.href = "yes_page.html";
 }
 </script>
 
 </body>
 </html>
+
