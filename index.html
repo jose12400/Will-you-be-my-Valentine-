@@ -24,7 +24,8 @@
     </div>
 
     <div class="gif_container">
-        <img src="gatitos.gif" alt="Sticker">
+        <!-- Sticker que cambia al hacer click en No -->
+        <img id="stickerPrincipal" src="gatito.gif" alt="Sticker">
     </div>
 </div>
 
@@ -64,9 +65,26 @@ document.addEventListener("DOMContentLoaded", function () {
     mostrarSiguiente();
     setInterval(mostrarSiguiente, 1500);
 });
+
+// 🐾 Cambiar sticker al hacer click en "No"
+const stickers = [
+    "gatito.gif",
+    "gatito2.gif",
+    "gatito3.gif",
+    "gatito4.gif",
+    "gatito5.gif", // agrega todos los que subiste
+    "gatito6.gif"
+];
+
+function handleNoClick() {
+    const sticker = document.getElementById("stickerPrincipal");
+    let nuevo;
+    do {
+        nuevo = stickers[Math.floor(Math.random() * stickers.length)];
+    } while (nuevo === sticker.src.split("/").pop()); // evita repetir el mismo
+    sticker.src = nuevo;
+}
 </script>
 
 </body>
 </html>
-
-
