@@ -44,8 +44,9 @@ h1 {
     background-color: #4caf50;
 }
 
-.no-button {
+..no-button {
     background-color: #f44336;
+    font-size: 2em; /* aumenta solo la letra */
 }
 
 /* ===== GIF STICKER ===== */
