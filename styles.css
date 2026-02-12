@@ -7,7 +7,7 @@ body {
     margin: 0;
     font-family: 'Arial', sans-serif;
     flex-direction: column;
-    background: linear-gradient(135deg, #0d1b2a, #1b263b);
+    background: linear-gradient(135deg, #ffdde1, #ee9ca7);
     overflow: hidden;
 }
 
@@ -16,24 +16,21 @@ body {
     text-align: center;
     position: relative;
     width: 90%;
-    z-index: 10;
 }
 
 /* ===== HEADER ===== */
 h1 {
-    font-size: 4em;
-    color: #ff6f61;
+    font-size: 2.5em;
+    color: #d32f2f;
     margin-bottom: 40px;
 }
 
 /* ===== BOTONES ===== */
 .buttons {
     margin-top: 20px;
-    position: relative;
-    z-index: 20;
 }
 
-.si-button, .no-button {
+.yes-button, .no-button {
     font-size: 1.5em;
     padding: 10px 20px;
     border: none;
@@ -42,25 +39,24 @@ h1 {
     cursor: pointer;
 }
 
-.si-button {
+.yes-button {
     margin-right: 10px;
     background-color: #4caf50;
 }
+
 .no-button {
     background-color: #f44336;
-    color: white;
-    font-size: 2em;
 }
 
-/* ===== GIF STICKER (AHORA A LA MITAD DE TAMAÑO) ===== */
+/* ===== GIF STICKER ===== */
 .gif_container img {
-    max-width: 50%; /* Cambio solicitado: antes 100%, ahora 50% */
+    max-width: 100%;
     height: auto;
     border-radius: 10px;
     margin-top: 20px;
 }
 
-/* ===== FOTOS ALREDEDOR (MÁS CENTRADAS) ===== */
+/* ===== FOTOS ALREDEDOR ===== */
 .foto {
     position: absolute;
     width: 280px;
@@ -71,16 +67,13 @@ h1 {
     background-size: cover;
     background-position: center;
     transition: opacity 0.5s ease-in-out;
-    
-    /* Importante para que no bloqueen los botones */
-    pointer-events: none; 
 }
 
-/* POSICIONES (Cambio solicitado: antes -120px, ahora -40px para que no estén tan esquinadas) */
-.foto1 { top: -40px; left: -40px; background-image: url("foto1.jpeg"); }
-.foto2 { top: -40px; right: -40px; background-image: url("foto2.jpeg"); }
-.foto3 { bottom: -40px; left: -40px; background-image: url("foto3.jpeg"); }
-.foto4 { bottom: -40px; right: -40px; background-image: url("foto4.jpeg"); }
+/* POSICIONES DE LAS FOTOS */
+.foto1 { top: -40px; left: -120px; background-image: url("foto1.jpeg"); }
+.foto2 { top: -40px; right: -120px; background-image: url("foto2.jpeg"); }
+.foto3 { bottom: -40px; left: -120px; background-image: url("foto3.jpeg"); }
+.foto4 { bottom: -40px; right: -120px; background-image: url("foto4.jpeg"); }
 
 /* ===== STICKERS FLOTANTES ===== */
 .sticker {
@@ -90,22 +83,31 @@ h1 {
     z-index: 1;
 }
 
+/* POSICIONES Y ANIMACIONES */
 .sticker1 { top: 10%; left: 5%; animation: flotar1 6s infinite ease-in-out; }
 .sticker2 { top: 70%; left: 10%; animation: flotar2 7s infinite ease-in-out; }
 .sticker3 { top: 20%; right: 5%; animation: flotar3 8s infinite ease-in-out; }
 .sticker4 { bottom: 10%; right: 15%; animation: flotar4 6s infinite ease-in-out; }
 
-@keyframes flotar1 { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-30px); } }
-@keyframes flotar2 { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-25px); } }
-@keyframes flotar3 { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
-@keyframes flotar4 { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-35px); } }
+/* ANIMACIONES */
+@keyframes flotar1 { 0% { transform: translateY(0); } 50% { transform: translateY(-30px); } 100% { transform: translateY(0); } }
+@keyframes flotar2 { 0% { transform: translateY(0); } 50% { transform: translateY(-25px); } 100% { transform: translateY(0); } }
+@keyframes flotar3 { 0% { transform: translateY(0); } 50% { transform: translateY(-20px); } 100% { transform: translateY(0); } }
+@keyframes flotar4 { 0% { transform: translateY(0); } 50% { transform: translateY(-35px); } 100% { transform: translateY(0); } }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
-    h1 { font-size: 2em; }
-    .foto { width: 200px; height: 250px; border: 8px solid white; }
-    /* Ajuste para móvil para que no se salgan */
-    .foto1, .foto3 { left: 5px; }
-    .foto2, .foto4 { right: 5px; }
-    .sticker { width: 80px; }
+    h1 {
+        font-size: 2em;
+    }
+
+    .foto {
+        width: 200px;
+        height: 250px;
+        border: 8px solid white;
+    }
+
+    .sticker {
+        width: 80px;
+    }
 }
