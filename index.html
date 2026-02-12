@@ -28,6 +28,12 @@
     </div>
 </div>
 
+<!-- STICKERS FLOTANTES -->
+<img src="gatito.gif" class="sticker sticker1">
+<img src="gatito2.gif" class="sticker sticker2">
+<img src="gatito3.gif" class="sticker sticker3">
+<img src="gatito4.gif" class="sticker sticker4">
+
 <audio id="musica" loop>
     <source src="Stephen Sanchez - Until I Found You (Official Video).mp3" type="audio/mpeg">
 </audio>
@@ -45,11 +51,8 @@ document.addEventListener('click', function() {
 
 // 📸 Fotos aparecen una por una cada 1.5 segundos
 document.addEventListener("DOMContentLoaded", function () {
-
     const fotos = document.querySelectorAll(".foto");
     let index = 0;
-
-    // Ocultar todas al inicio
     fotos.forEach(f => f.style.opacity = "0");
 
     function mostrarSiguiente() {
@@ -60,10 +63,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     mostrarSiguiente();
     setInterval(mostrarSiguiente, 1500);
-
 });
 </script>
 
 </body>
 </html>
+
 
