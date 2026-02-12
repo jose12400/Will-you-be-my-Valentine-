@@ -1,8 +1,9 @@
+/* ===== BODY ===== */
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #0d1b2a, #1b263b);
+    background: linear-gradient(135deg, #0d1b2a, #1b263b); /* azul noche */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,25 +12,25 @@ body {
     overflow: hidden;
 }
 
+/* ===== CONTAINER ===== */
 .container {
     position: relative;
     width: 100%;
     max-width: 900px;
+    z-index: 2; /* para que el h1 quede encima de las fotos */
 }
 
+/* ===== H1 ROMÁNTICO ===== */
 .header_text {
     font-size: 42px;
     color: white;
     text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
     margin-bottom: 40px;
-    position: relative;
-    z-index: 2;
 }
 
-/* FOTOS ALREDEDOR */
-
+/* ===== FOTOS DISTRIBUIDAS POR TODA LA PANTALLA ===== */
 .foto {
-    position: absolute;
+    position: fixed; /* ahora se posicionan respecto a la pantalla completa */
     width: 280px;
     height: 350px;
     border: 10px solid white;
@@ -38,44 +39,30 @@ body {
     background-size: cover;
     background-position: center;
     transition: opacity 0.5s ease-in-out;
+    opacity: 0; /* inicialmente ocultas, se muestran con JS */
 }
 
-/* POSICIONES */
+/* Distribución visual por la pantalla */
+.foto5 { top: 5%; left: 5%; background-image: url("foto5.jpeg"); }
+.foto6 { top: 30%; right: 10%; background-image: url("foto6.jpeg"); }
+.foto7 { bottom: 25%; left: 15%; background-image: url("foto7.jpeg"); }
+.foto8 { bottom: 10%; right: 20%; background-image: url("foto8.jpeg"); }
 
-.foto5 {
-    top: 5%;       /* 5% desde arriba */
-    left: 10%;      /* 10% desde la izquierda */
-    background-image: url("foto5.jpeg");
-}
-
-.foto6 {
-    top: 10%;       /* 10% desde arriba */
-    right: 10%;     /* 10% desde la derecha */
-    background-image: url("foto6.jpeg");
-}
-
-.foto7 {
-    bottom: 15%;    /* 15% desde abajo */
-    left: 20%;      /* 20% desde la izquierda */
-    background-image: url("foto7.jpeg");
-}
-
-.foto8 {
-    bottom: 10%;    /* 10% desde abajo */
-    right: 20%;     /* 20% desde la derecha */
-    background-image: url("foto8.jpeg");
-}
-
-/* RESPONSIVE CELULAR */
-
+/* ===== RESPONSIVE CELULAR ===== */
 @media (max-width: 768px) {
+
+    .header_text {
+        font-size: 26px;
+        padding: 0 15px;
+    }
+
     .foto {
         width: 180px;
         height: 240px;
     }
 
-    .foto5 { top: 5%; left: 10%; }
-    .foto6 { top: 10%; right: 10%; }
-    .foto7 { bottom: 10%; left: 15%; }
+    .foto5 { top: 5%; left: 5%; }
+    .foto6 { top: 20%; right: 5%; }
+    .foto7 { bottom: 15%; left: 10%; }
     .foto8 { bottom: 5%; right: 10%; }
 }
