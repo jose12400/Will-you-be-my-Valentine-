@@ -9,87 +9,92 @@
 
 <body>
 
-<div class="foto foto1"></div>
-<div class="foto foto2"></div>
-<div class="foto foto3"></div>
-<div class="foto foto4"></div>
+    <div class="foto foto1"></div>
+    <div class="foto foto2"></div>
+    <div class="foto foto3"></div>
+    <div class="foto foto4"></div>
 
-<div class="container">
-    <h1>🥺 ¿Quieres ser mi San Valentín, more? 🥺</h1>
+    <div class="container">
+        <h1>🥺 ¿Quieres ser mi San Valentín, more? 🥺</h1>
 
-    <div class="gif_container">
-        <img id="stickerPrincipal" src="gatitos.gif" alt="Sticker">
+        <div class="gif_container">
+            <img id="stickerPrincipal" src="gatitos.gif" alt="Sticker">
+        </div>
+
+        <div class="buttons">
+            <button class="si-button" onclick="handleYesClick()">SÍ</button>
+            <button class="no-button" onclick="handleNoClick()">No</button>
+        </div>
     </div>
 
-    <div class="buttons">
-        <button class="si-button" onclick="handleYesClick()">SÍ</button>
-        <button class="no-button" onclick="handleNoClick()">No</button>
-    </div>
-</div>
+    <img src="gatitos.gif" class="sticker sticker1">
+    <img src="gatitos2.gif" class="sticker sticker2">
+    <img src="gatitos3.gif" class="sticker sticker3">
+    <img src="gatitos4.gif" class="sticker sticker4">
 
-<img src="gatitos.gif" class="sticker sticker1">
-<img src="gatitos2.gif" class="sticker sticker2">
-<img src="gatitos3.gif" class="sticker sticker3">
-<img src="gatitos4.gif" class="sticker sticker4">
+    <audio id="musica" loop>
+        <source src="Stephen Sanchez - Until I Found You (Official Video).mp3" type="audio/mpeg">
+    </audio>
 
-<audio id="musica" loop>
-    <source src="Stephen Sanchez - Until I Found You (Official Video).mp3" type="audio/mpeg">
-</audio>
+    <script>
+    // 🎵 Música: Inicia con cualquier interacción
+    document.addEventListener('click', function() {
+        const audio = document.getElementById('musica');
+        if (audio && audio.paused) audio.play().catch(e => console.log("Audio esperando..."));
+    }, { once: true });
 
-<script>
-// 🎵 Música inicia al primer toque
-document.addEventListener('click', function() {
-    const audio = document.getElementById('musica');
-    if (audio.paused) audio.play();
-}, { once: true });
-
-// 📸 Rotación de fotos con nitidez
-document.addEventListener("DOMContentLoaded", function () {
-    const fotos = document.querySelectorAll(".foto");
-    let index = 0;
-    
-    function mostrarSiguiente() {
-        fotos.forEach(f => f.style.opacity = "0");
-        if(fotos[index]) {
+    // 📸 Rotación de fotos: Una por una cada 2.5 segundos
+    document.addEventListener("DOMContentLoaded", function () {
+        const fotos = document.querySelectorAll(".foto");
+        let index = 0;
+        
+        function mostrarSiguiente() {
+            if (fotos.length === 0) return;
+            fotos.forEach(f => f.style.opacity = "0");
             fotos[index].style.opacity = "1";
             index = (index + 1) % fotos.length;
         }
+        
+        mostrarSiguiente();
+        setInterval(mostrarSiguiente, 2500); 
+    });
+
+    const stickers = ["gatitos.gif", "gatitos2.gif", "gatitos3.gif", "gatitos4.gif"];
+    const messages = [
+        "¿Estás segura more mío? 🥺",
+        "¡Piénsalo moreeee! 🍕🍿",
+        "Mira que te daré un chin...🫠",
+        "¿Segura? Mira que te caes y plum 😭😭",
+        "Ya me estoy poniendo triste 😢",
+        "¡Di que sí de mi corazón! 💕",
+        "Te llenaré de besos si dices sí 😘",
+        "¡Pícale al SÍ! Sé que quieres 🫣",
+    ];
+    let messageIndex = 0;
+
+    function handleNoClick() {
+        const noButton = document.querySelector('.no-button');
+        const siButton = document.querySelector('.si-button');
+        const sticker = document.getElementById("stickerPrincipal");
+        
+        // Cambiar texto del botón No
+        noButton.textContent = messages[messageIndex];
+        messageIndex = (messageIndex + 1) % messages.length;
+
+        // El botón SÍ crece proporcionalmente
+        const currentSize = parseFloat(window.getComputedStyle(siButton).fontSize);
+        siButton.style.fontSize = (currentSize * 1.3) + "px";
+        siButton.style.padding = "15px 35px";
+
+        // Cambiar el GIF central aleatoriamente
+        const randomSticker = stickers[Math.floor(Math.random() * stickers.length)];
+        sticker.src = randomSticker;
     }
-    mostrarSiguiente();
-    setInterval(mostrarSiguiente, 2500); 
-});
 
-const stickers = ["gatitos.gif", "gatitos2.gif", "gatitos3.gif", "gatitos4.gif"];
-const messages = [
-    "¿Estás segura more mío? 🥺",
-    "¡Piénsalo moreeee! 🍕🍿",
-    "Mira que te daré un chin...🫠",
-    "¿Segura? Mira que te caes y plum 😭😭",
-    "Ya me estoy poniendo triste 😢",
-    "¡Di que sí de mi corazón! 💕",
-    "Te llenaré de besos si dices sí 😘",
-    "¡Pícale al SÍ! Sé que quieres 🫣",
-];
-let messageIndex = 0;
-
-function handleNoClick() {
-    const noButton = document.querySelector('.no-button');
-    const siButton = document.querySelector('.si-button');
-    
-    noButton.textContent = messages[messageIndex];
-    messageIndex = (messageIndex + 1) % messages.length;
-
-    const currentSize = parseFloat(window.getComputedStyle(siButton).fontSize);
-    siButton.style.fontSize = `${currentSize * 1.4}px`;
-
-    const sticker = document.getElementById("stickerPrincipal");
-    sticker.src = stickers[Math.floor(Math.random() * stickers.length)];
-}
-
-function handleYesClick() {
-    window.location.href = "yes_page.html";
-}
-</script>
+    function handleYesClick() {
+        window.location.href = "yes_page.html";
+    }
+    </script>
 
 </body>
 </html>
