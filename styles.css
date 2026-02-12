@@ -102,8 +102,8 @@ h1 {
     }
 
     .foto {
-        width: 200px;
-        height: 250px;
+        width: 170px;
+        height: 220px;
         border: 8px solid white;
         pointer-events: none; /* ← evita que bloqueen clics */
     }
