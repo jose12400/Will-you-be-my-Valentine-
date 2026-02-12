@@ -70,10 +70,10 @@ h1 {
 }
 
 /* POSICIONES DE LAS FOTOS */
-.foto1 { top: 20px; left: 40px; background-image: url("foto1.jpeg"); }
-.foto2 { top: 20px; right: 40px; background-image: url("foto2.jpeg"); }
-.foto3 { bottom: 20px; left: 40px; background-image: url("foto3.jpeg"); }
-.foto4 { bottom: 20px; right: 40px; background-image: url("foto4.jpeg"); }
+.foto1 { top: 30px; left: 60px; background-image: url("foto1.jpeg"); }
+.foto2 { top: 30px; right: 60px; background-image: url("foto2.jpeg"); }
+.foto3 { bottom: 30px; left: 60px; background-image: url("foto3.jpeg"); }
+.foto4 { bottom: 30px; right: 60px; background-image: url("foto4.jpeg"); }
 
 /* ===== STICKERS FLOTANTES ===== */
 .sticker {
@@ -108,6 +108,6 @@ h1 {
     }
 
     .sticker {
-        width: 50px;
+        width: 20px;
     }
 }
