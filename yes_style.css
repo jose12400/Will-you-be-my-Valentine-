@@ -43,45 +43,39 @@ body {
 /* POSICIONES */
 
 .foto5 {
-    top: -40px;
-    left: -120px;
+    top: 10%;       /* 10% desde arriba */
+    left: 20%;      /* 20% desde la izquierda */
     background-image: url("foto5.jpeg");
 }
 
 .foto6 {
-    top: -40px;
-    right: -120px;
+    top: 15%;       /* 15% desde arriba */
+    right: 15%;     /* 15% desde la derecha */
     background-image: url("foto6.jpeg");
 }
 
 .foto7 {
-    bottom: -40px;
-    left: -120px;
+    bottom: 20%;    /* 20% desde abajo */
+    left: 25%;      /* 25% desde la izquierda */
     background-image: url("foto7.jpeg");
 }
 
 .foto8 {
-    bottom: -40px;
-    right: -120px;
+    bottom: 15%;    /* 15% desde abajo */
+    right: 25%;     /* 25% desde la derecha */
     background-image: url("foto8.jpeg");
 }
 
 /* RESPONSIVE CELULAR */
 
 @media (max-width: 768px) {
-
-    .header_text {
-        font-size: 26px;
-        padding: 0 15px;
-    }
-
     .foto {
         width: 180px;
         height: 240px;
     }
 
-    .foto5 { top: -20px; left: -40px; }
-    .foto6 { top: -20px; right: -40px; }
-    .foto7 { bottom: -20px; left: -40px; }
-    .foto8 { bottom: -20px; right: -40px; }
+    .foto5 { top: 5%; left: 10%; }
+    .foto6 { top: 10%; right: 10%; }
+    .foto7 { bottom: 10%; left: 15%; }
+    .foto8 { bottom: 5%; right: 10%; }
 }
