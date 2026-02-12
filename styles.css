@@ -11,24 +11,24 @@ body {
     overflow: hidden;
 }
 
-/* ===== CONTAINER ===== */
+/* ===== CONTAINER (Aumentamos z-index para que esté al frente) ===== */
 .container {
     text-align: center;
     position: relative;
     width: 90%;
-    z-index: 10; /* Asegura que esté sobre las fotos */
+    z-index: 100; /* Asegura que el texto y botones estén al frente de todo */
 }
 
 /* ===== HEADER ===== */
 h1 {
-    font-size: 3em; /* Un poco más pequeño para dar aire */
+    font-size: 3em;
     color: #ff6f61;
     margin-bottom: 20px;
 }
 
-/* ===== GIF STICKER (A LA MITAD DE TAMAÑO) ===== */
+/* ===== GIF STICKER ===== */
 .gif_container img {
-    max-width: 50%; /* ANTES ERA 100%, AHORA LA MITAD */
+    max-width: 50%;
     height: auto;
     border-radius: 10px;
     margin-top: 10px;
@@ -37,6 +37,8 @@ h1 {
 /* ===== BOTONES ===== */
 .buttons {
     margin-top: 20px;
+    position: relative;
+    z-index: 110; /* Máxima prioridad para el clic */
 }
 
 .si-button, .no-button {
@@ -55,13 +57,13 @@ h1 {
 .no-button {
     background-color: #f44336;
     color: white;
-    font-size: 1.5em; /* Ajustado para que no sea excesivo */
+    font-size: 1.5em;
 }
 
-/* ===== FOTOS (MÁS CENTRADAS Y NÍTIDAS) ===== */
+/* ===== FOTOS (CON EL TRUCO PARA DEJAR PASAR EL CLICK) ===== */
 .foto {
     position: absolute;
-    width: 250px;  /* Un poco más pequeñas para que quepan mejor */
+    width: 250px;
     height: 320px;
     border: 8px solid white;
     border-radius: 15px;
@@ -69,12 +71,15 @@ h1 {
     background-size: cover;
     background-position: center;
     z-index: 1;
-    /* Mejora de nitidez */
+    
+    /* ESTO ES LO QUE ARREGLA EL CLICK: */
+    pointer-events: none; 
+    
     filter: brightness(1) contrast(1.05);
     image-rendering: -webkit-optimize-contrast;
 }
 
-/* POSICIONES MÁS CENTRADAS (Cambiamos los -120px por -40px para acercarlas al centro) */
+/* POSICIONES CENTRADAS */
 .foto1 { top: -60px; left: -40px; background-image: url("foto1.jpeg"); transform: rotate(-5deg); }
 .foto2 { top: -60px; right: -40px; background-image: url("foto2.jpeg"); transform: rotate(5deg); }
 .foto3 { bottom: -60px; left: -40px; background-image: url("foto3.jpeg"); transform: rotate(5deg); }
@@ -84,7 +89,7 @@ h1 {
 .sticker {
     position: fixed;
     width: 100px;
-    pointer-events: none;
+    pointer-events: none; /* También para los stickers */
     z-index: 5;
 }
 
@@ -99,25 +104,13 @@ h1 {
 @keyframes flotar3 { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
 @keyframes flotar4 { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
 
-/* ===== RESPONSIVE PARA MÓVIL (MUY IMPORTANTE) ===== */
+/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
     h1 { font-size: 1.8em; }
-    
-    .gif_container img {
-        max-width: 70%; /* En móvil el 50% sería muy pequeño, mejor 70% */
-    }
-
-    .foto {
-        width: 140px;
-        height: 180px;
-        border: 5px solid white;
-    }
-
-    /* En móvil las acercamos aún más para que no se salgan de la pantalla */
+    .gif_container img { max-width: 70%; }
+    .foto { width: 140px; height: 180px; }
     .foto1 { top: 10px; left: 10px; }
     .foto2 { top: 10px; right: 10px; }
     .foto3 { bottom: 10px; left: 10px; }
     .foto4 { bottom: 10px; right: 10px; }
-
-    .sticker { width: 60px; }
 }
