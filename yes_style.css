@@ -22,10 +22,22 @@ body {
 
 /* ===== H1 ROMÁNTICO ===== */
 .header_text {
-    font-size: 42px;
-    color: white;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    font-size: 60px;              /* más grande */
+    color: #ff6f61;               /* color cálido que resalte sobre azul noche */
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
     margin-bottom: 40px;
+    position: relative;
+    z-index: 2;
+    text-transform: uppercase;    /* convierte todo a mayúsculas */
+    animation: parpadeo 1s infinite; /* animación de parpadeo */
+    font-weight: bold;            /* más gruesa */
+    line-height: 1.2;             /* para que no se vea muy separada */
+}
+
+/* Animación de parpadeo */
+@keyframes parpadeo {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
 }
 
 /* ===== FOTOS DISTRIBUIDAS POR TODA LA PANTALLA ===== */
