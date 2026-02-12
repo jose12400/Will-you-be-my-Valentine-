@@ -116,4 +116,9 @@ h1 {
     .foto2 { top: 5%; right: 5%; }
     .foto3 { bottom: 5%; left: 5%; }
     .foto4 { bottom: 5%; right: 5%; }
+
+    /* SUBIR CONTENIDO */
+    .container{
+        transform: translateY(-50px);
+    }
 }
