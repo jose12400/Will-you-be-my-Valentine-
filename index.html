@@ -3,30 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🥺Quieres ser mi San Valentin more🥺?</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Quieres ser mi San Valentin more?</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
 <div class="container">
-    <h1>🥺Quieres ser mi San valentin more🥺?</h1>
+    <h1>Quieres ser mi San valentin more?</h1>
 
+    <!-- FOTOS ALREDEDOR -->
     <div class="foto foto1"></div>
     <div class="foto foto2"></div>
     <div class="foto foto3"></div>
     <div class="foto foto4"></div>
 
     <div class="buttons">
-        <button class="si-button" onclick="handleYesClick()">si</button>
+        <button class="yes-button" onclick="handleYesClick()">Yes</button>
         <button class="no-button" onclick="handleNoClick()">No</button>
     </div>
 
     <div class="gif_container">
+        <!-- Sticker principal que cambia al hacer click en No -->
         <img id="stickerPrincipal" src="gatitos.gif" alt="Sticker">
     </div>
 </div>
 
+<!-- STICKERS FLOTANTES -->
 <img src="gatitos.gif" class="sticker sticker1">
 <img src="gatitos2.gif" class="sticker sticker2">
 <img src="gatitos3.gif" class="sticker sticker3">
@@ -35,6 +38,8 @@
 <audio id="musica" loop>
     <source src="Stephen Sanchez - Until I Found You (Official Video).mp3" type="audio/mpeg">
 </audio>
+
+<script src="script.js"></script>
 
 <script>
 // 🎵 Música inicia al primer click
@@ -69,35 +74,41 @@ const stickers = [
 
 // 💬 Mensajes dinámicos para botón No
 const messages = [
-    "Esta segura more mio? 🥺",
-    "Piensalooooo moreeee🍕🍿??",
-    "Mira que te dare un chin, piensa si🫠🙄?",
-    "Te caeras por ahi y plum 😭😭😭 fuiste, segura?",
-    "Ya me estoy poniendo triste more 😢",
-    "Di que siisis more mio de mi corazonn😱😱💕",
-    "Te voy a llenar de besos si dices que sii😘",
-    "Ya picale al SII, se que quieres cowboy cowboy🫣",
+    "Are you sure?",
+    "Really sure??",
+    "Are you positive?",
+    "Pookie please...",
+    "Just think about it!",
+    "If you say no, I will be really sad...",
+    "I will be very sad...",
+    "I will be very very very sad...",
+    "Ok fine, I will stop asking...",
+    "Just kidding, say yes please! ❤️"
 ];
 let messageIndex = 0;
 
 // ===== Función para botón No =====
 function handleNoClick() {
+    // Cambia mensaje del botón No
     const noButton = document.querySelector('.no-button');
-    const siButton = document.querySelector('.si-button');
+    const yesButton = document.querySelector('.yes-button');
     noButton.textContent = messages[messageIndex];
     messageIndex = (messageIndex + 1) % messages.length;
 
-    const currentSize = parseFloat(window.getComputedStyle(siButton).fontSize);
-    siButton.style.fontSize = `${currentSize * 1.5}px`;
+    // Aumenta tamaño del botón Yes
+    const currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
+    yesButton.style.fontSize = `${currentSize * 1.5}px`;
 
+    // Cambia sticker principal a uno aleatorio
     const sticker = document.getElementById("stickerPrincipal");
     let nuevo;
     do {
         nuevo = stickers[Math.floor(Math.random() * stickers.length)];
-    } while (nuevo === sticker.src.split("/").pop()); 
+    } while (nuevo === sticker.src.split("/").pop()); // evita repetir
     sticker.src = nuevo;
 }
 
+// ===== Función para botón Yes =====
 function handleYesClick() {
     window.location.href = "yes_page.html";
 }
