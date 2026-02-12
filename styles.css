@@ -1,124 +1,107 @@
-/* ===== CONFIGURACIÓN GLOBAL ===== */
+/* ===== BODY ===== */
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    font-family: 'Arial Black', sans-serif;
+    font-family: 'Arial', sans-serif;
     flex-direction: column;
     background: linear-gradient(135deg, #0d1b2a, #1b263b);
     overflow: hidden;
-    color: white;
-    text-align: center;
 }
 
-/* ===== CONTENEDOR CENTRAL ===== */
+/* ===== CONTAINER ===== */
 .container {
+    text-align: center;
     position: relative;
-    z-index: 100; /* Asegura que esté frente a las fotos */
     width: 90%;
-    max-width: 500px;
+    z-index: 10;
 }
 
+/* ===== HEADER ===== */
 h1 {
-    font-size: 2.2em;
+    font-size: 3em;
     color: #ff6f61;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
     margin-bottom: 20px;
-}
-
-/* ===== GIF CENTRAL (TAMAÑO FIJO) ===== */
-.gif_container img {
-    width: 180px; /* Tamaño controlado para que no se agrande solo */
-    height: auto;
-    border-radius: 20px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-    margin: 10px 0;
 }
 
 /* ===== BOTONES ===== */
 .buttons {
-    margin-top: 25px;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
+    margin-top: 20px;
 }
 
 .si-button, .no-button {
-    font-size: 1.2em;
-    padding: 12px 25px;
+    font-size: 1.5em;
+    padding: 10px 20px;
     border: none;
-    border-radius: 12px;
+    border-radius: 5px;
     color: white;
     cursor: pointer;
-    font-weight: bold;
-    transition: transform 0.2s, font-size 0.2s ease;
 }
 
 .si-button {
+    margin-right: 10px;
     background-color: #4caf50;
-    box-shadow: 0 4px 10px rgba(76, 175, 80, 0.4);
 }
-
 .no-button {
     background-color: #f44336;
-    box-shadow: 0 4px 10px rgba(244, 67, 54, 0.4);
 }
 
-/* ===== FOTOS (NÍTIDAS Y BIEN UBICADAS) ===== */
+/* ===== GIF STICKER (TAMAÑO A LA MITAD) ===== */
+.gif_container img {
+    max-width: 50%; /* Esto lo hace la mitad de lo original */
+    height: auto;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+/* ===== FOTOS ALREDEDOR ===== */
 .foto {
     position: absolute;
-    width: 200px;
-    height: 260px;
-    border: 8px solid white;
-    border-radius: 15px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    width: 280px;
+    height: 350px;
+    border: 10px solid white;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
     background-size: cover;
     background-position: center;
-    z-index: 1;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-    pointer-events: none; /* FUNDAMENTAL: Deja pasar el click a los botones */
+    transition: opacity 0.5s ease-in-out;
     
-    /* Efecto de Nitidez */
-    filter: brightness(1) contrast(1.05);
-    image-rendering: -webkit-optimize-contrast;
+    /* ESTO ES LO IMPORTANTE: Permite que el click pase a los botones */
+    pointer-events: none; 
+    z-index: 1;
 }
 
-/* Posiciones dentro del área visible */
-.foto1 { top: 30px; left: 30px; transform: rotate(-8deg); background-image: url("foto1.jpeg"); }
-.foto2 { top: 30px; right: 30px; transform: rotate(8deg); background-image: url("foto2.jpeg"); }
-.foto3 { bottom: 30px; left: 30px; transform: rotate(5deg); background-image: url("foto3.jpeg"); }
-.foto4 { bottom: 30px; right: 30px; transform: rotate(-5deg); background-image: url("foto4.jpeg"); }
+/* POSICIONES ORIGINALES (Ligeramente ajustadas para que no se pierdan) */
+.foto1 { top: -40px; left: -80px; background-image: url("foto1.jpeg"); }
+.foto2 { top: -40px; right: -80px; background-image: url("foto2.jpeg"); }
+.foto3 { bottom: -40px; left: -80px; background-image: url("foto3.jpeg"); }
+.foto4 { bottom: -40px; right: -80px; background-image: url("foto4.jpeg"); }
 
 /* ===== STICKERS FLOTANTES ===== */
 .sticker {
     position: fixed;
-    width: 80px;
+    width: 100px;
     pointer-events: none;
-    z-index: 50;
+    z-index: 1;
 }
 
-.sticker1 { top: 15%; left: 10%; animation: flotar 6s infinite ease-in-out; }
-.sticker2 { bottom: 15%; right: 10%; animation: flotar 7s infinite ease-in-out; }
-.sticker3 { top: 25%; right: 15%; animation: flotar 5s infinite ease-in-out; }
-.sticker4 { bottom: 25%; left: 15%; animation: flotar 8s infinite ease-in-out; }
+.sticker1 { top: 10%; left: 5%; animation: flotar1 6s infinite ease-in-out; }
+.sticker2 { top: 70%; left: 10%; animation: flotar2 7s infinite ease-in-out; }
+.sticker3 { top: 20%; right: 5%; animation: flotar3 8s infinite ease-in-out; }
+.sticker4 { bottom: 10%; right: 15%; animation: flotar4 6s infinite ease-in-out; }
 
-@keyframes flotar {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-25px); }
-}
+/* ANIMACIONES */
+@keyframes flotar1 { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-30px); } }
+@keyframes flotar2 { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-25px); } }
+@keyframes flotar3 { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+@keyframes flotar4 { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-35px); } }
 
-/* ===== RESPONSIVE PARA MÓVIL ===== */
+/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
-    h1 { font-size: 1.6em; }
-    .gif_container img { width: 140px; }
-    .foto { width: 120px; height: 160px; border-width: 5px; }
-    
-    /* En móvil las pegamos un poco más a las esquinas */
-    .foto1 { top: 15px; left: 15px; }
-    .foto2 { top: 15px; right: 15px; }
-    .foto3 { bottom: 15px; left: 15px; }
-    .foto4 { bottom: 15px; right: 15px; }
+    h1 { font-size: 2em; }
+    .foto { width: 180px; height: 240px; }
+    .foto1, .foto3 { left: 10px; }
+    .foto2, .foto4 { right: 10px; }
 }
