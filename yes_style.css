@@ -43,26 +43,26 @@ body {
 /* POSICIONES */
 
 .foto5 {
-    top: 10%;       /* 10% desde arriba */
-    left: 20%;      /* 20% desde la izquierda */
+    top: 8%;       /* 8% desde arriba */
+    left: 15%;      /* 15% desde la izquierda */
     background-image: url("foto5.jpeg");
 }
 
 .foto6 {
-    top: 15%;       /* 15% desde arriba */
-    right: 15%;     /* 15% desde la derecha */
+    top: 10%;       /* 10% desde arriba */
+    right: 10%;     /* 10% desde la derecha */
     background-image: url("foto6.jpeg");
 }
 
 .foto7 {
-    bottom: 20%;    /* 20% desde abajo */
-    left: 25%;      /* 25% desde la izquierda */
+    bottom: 15%;    /* 15% desde abajo */
+    left: 20%;      /* 20% desde la izquierda */
     background-image: url("foto7.jpeg");
 }
 
 .foto8 {
-    bottom: 15%;    /* 15% desde abajo */
-    right: 25%;     /* 25% desde la derecha */
+    bottom: 10%;    /* 10% desde abajo */
+    right: 20%;     /* 20% desde la derecha */
     background-image: url("foto8.jpeg");
 }
 
