@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,44 +43,59 @@ document.addEventListener('click', function() {
     if (audio.paused) audio.play();
 }, { once: true });
 
-// 📸 Fotos rotativas
+// 📸 Fotos alrededor aparecen una por una cada 1.5s
 document.addEventListener("DOMContentLoaded", function () {
     const fotos = document.querySelectorAll(".foto");
     let index = 0;
-    
+    fotos.forEach(f => f.style.opacity = "0");
+
     function mostrarSiguiente() {
         fotos.forEach(f => f.style.opacity = "0");
-        if(fotos[index]) {
-            fotos[index].style.opacity = "1";
-            index = (index + 1) % fotos.length;
-        }
+        fotos[index].style.opacity = "1";
+        index = (index + 1) % fotos.length;
     }
+
     mostrarSiguiente();
-    setInterval(mostrarSiguiente, 2000); 
+    setInterval(mostrarSiguiente, 1500);
 });
 
-const stickers = ["gatitos.gif", "gatitos2.gif", "gatitos3.gif", "gatitos4.gif"];
+// 🐾 Stickers disponibles para el principal (al click en No)
+const stickers = [
+    "gatitos.gif",
+    "gatitos2.gif",
+    "gatitos3.gif",
+    "gatitos4.gif"
+];
+
+// 💬 Mensajes dinámicos para botón No
 const messages = [
     "Esta segura more mio? 🥺",
     "Piensalooooo moreeee🍕🍿??",
-    "Mira que te dare un chin...🫠",
+    "Mira que te dare un chin, piensa si🫠🙄?",
+    "Te caeras por ahi y plum 😭😭😭 fuiste, segura?",
+    "Ya me estoy poniendo triste more 😢",
+    "Di que siisis more mio de mi corazonn😱😱💕",
     "Te voy a llenar de besos si dices que sii😘",
     "Ya picale al SII, se que quieres cowboy cowboy🫣",
 ];
 let messageIndex = 0;
 
+// ===== Función para botón No =====
 function handleNoClick() {
     const noButton = document.querySelector('.no-button');
     const siButton = document.querySelector('.si-button');
-    
     noButton.textContent = messages[messageIndex];
     messageIndex = (messageIndex + 1) % messages.length;
 
     const currentSize = parseFloat(window.getComputedStyle(siButton).fontSize);
-    siButton.style.fontSize = `${currentSize * 1.4}px`;
+    siButton.style.fontSize = `${currentSize * 1.5}px`;
 
     const sticker = document.getElementById("stickerPrincipal");
-    sticker.src = stickers[Math.floor(Math.random() * stickers.length)];
+    let nuevo;
+    do {
+        nuevo = stickers[Math.floor(Math.random() * stickers.length)];
+    } while (nuevo === sticker.src.split("/").pop()); 
+    sticker.src = nuevo;
 }
 
 function handleYesClick() {
