@@ -43,12 +43,11 @@ h1 {
     margin-right: 10px;
     background-color: #4caf50;
 }
-
-..no-button {
-    background-color: #f44336;
-    font-size: 2em; /* aumenta solo la letra */
+.no-button {
+    background-color: #f44336; /* fondo rojo */
+    color: white;               /* letra blanca */
+    font-size: 2em;             /* tamaño de letra grande */
 }
-
 /* ===== GIF STICKER ===== */
 .gif_container img {
     max-width: 100%;
