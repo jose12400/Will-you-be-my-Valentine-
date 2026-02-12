@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quieres ser mi San Valentin more?</title>
+    <title>🥺Quieres ser mi San Valentin more🥺?</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
 <div class="container">
-    <h1>Quieres ser mi San valentin more?</h1>
+    <h1>🥺Quieres ser mi San valentin more🥺?</h1>
 
     <!-- FOTOS ALREDEDOR -->
     <div class="foto foto1"></div>
@@ -19,7 +19,7 @@
     <div class="foto foto4"></div>
 
     <div class="buttons">
-        <button class="yes-button" onclick="handleYesClick()">Yes</button>
+        <button class="Si-button" onclick="handleYesClick()">Si</button>
         <button class="no-button" onclick="handleNoClick()">No</button>
     </div>
 
@@ -79,7 +79,7 @@ const messages = [
     "Mira que te dare un chin, piensa si🫠🙄?",
     "Te caeras por ahi y plum 😭😭😭 fuiste, segura?",
     "Ya me estoy poniendo triste more 😢",
-    "Di que siisis more mio de mi corazonn",
+    "Di que siisis more mio de mi corazonn😱😱💕",
     "Te voy a llenar de besoss si dices que sii😘",
     "Ya picale al SII, se que quieres🤠🫣🫣",
 ];
@@ -93,7 +93,7 @@ function handleNoClick() {
     noButton.textContent = messages[messageIndex];
     messageIndex = (messageIndex + 1) % messages.length;
 
-    // Aumenta tamaño del botón Yes
+    // Aumenta tamaño del botón Si
     const currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
     yesButton.style.fontSize = `${currentSize * 1.5}px`;
 
