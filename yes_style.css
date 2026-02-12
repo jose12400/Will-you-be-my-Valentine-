@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    background: linear-gradient(135deg, #0d1b2a, #1b263b);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -45,25 +45,25 @@ body {
 .foto1 {
     top: -40px;
     left: -120px;
-    background-image: url("foto1.jpeg");
+    background-image: url("foto5.jpeg");
 }
 
 .foto2 {
     top: -40px;
     right: -120px;
-    background-image: url("foto2.jpeg");
+    background-image: url("foto6.jpeg");
 }
 
 .foto3 {
     bottom: -40px;
     left: -120px;
-    background-image: url("foto3.jpeg");
+    background-image: url("foto7.jpeg");
 }
 
 .foto4 {
     bottom: -40px;
     right: -120px;
-    background-image: url("foto4.jpeg");
+    background-image: url("foto8.jpeg");
 }
 
 /* RESPONSIVE CELULAR */
@@ -80,8 +80,8 @@ body {
         height: 240px;
     }
 
-    .foto1 { top: -20px; left: -40px; }
-    .foto2 { top: -20px; right: -40px; }
-    .foto3 { bottom: -20px; left: -40px; }
-    .foto4 { bottom: -20px; right: -40px; }
+    .foto5 { top: -20px; left: -40px; }
+    .foto6 { top: -20px; right: -40px; }
+    .foto7 { bottom: -20px; left: -40px; }
+    .foto8 { bottom: -20px; right: -40px; }
 }
