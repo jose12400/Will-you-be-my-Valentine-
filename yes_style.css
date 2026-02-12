@@ -42,25 +42,25 @@ body {
 
 /* POSICIONES */
 
-.foto1 {
+.foto5 {
     top: -40px;
     left: -120px;
     background-image: url("foto5.jpeg");
 }
 
-.foto2 {
+.foto6 {
     top: -40px;
     right: -120px;
     background-image: url("foto6.jpeg");
 }
 
-.foto3 {
+.foto7 {
     bottom: -40px;
     left: -120px;
     background-image: url("foto7.jpeg");
 }
 
-.foto4 {
+.foto8 {
     bottom: -40px;
     right: -120px;
     background-image: url("foto8.jpeg");
