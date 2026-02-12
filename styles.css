@@ -91,7 +91,25 @@ h1 {
 
 /* ANIMACIONES */
 @keyframes flotar1 { 0% { transform: translateY(0); } 50% { transform: translateY(-30px); } 100% { transform: translateY(0); } }
-@keyframes flotar2 { 0% { transform: translateY(0); } 50% { transform: translateY(-40px); } 100% { transform: translateY(0); } }
-@keyframes flotar3 { 0% { transform: translateY(0); } 50% { transform: translateY(-35px); } 100% { transform: translateY(0); } }
-@keyframes flotar4 { 0% { transform: translateY(0); } 50% { transform: translateY(-25px); } 100% { transform: translateY(0); } }
+@keyframes flotar2 { 0% { transform: translateY(0); } 50% { transform: translateY(-25px); } 100% { transform: translateY(0); } }
+@keyframes flotar3 { 0% { transform: translateY(0); } 50% { transform: translateY(-20px); } 100% { transform: translateY(0); } }
+@keyframes flotar4 { 0% { transform: translateY(0); } 50% { transform: translateY(-35px); } 100% { transform: translateY(0); } }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    .foto {
+        width: 200px;
+        height: 250px;
+        border: 8px solid white;
+    }
+
+    .sticker {
+        width: 80px;
+    }
+}
+
 
