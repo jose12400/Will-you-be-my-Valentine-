@@ -108,6 +108,12 @@ h1 {
     }
 
     .sticker {
-        width: 60px;
+        width: 50px;
     }
+
+    /* POSICIONES PARA CELULAR */
+    .foto1 { top: 5%; left: 5%; }
+    .foto2 { top: 5%; right: 5%; }
+    .foto3 { bottom: 5%; left: 5%; }
+    .foto4 { bottom: 5%; right: 5%; }
 }
