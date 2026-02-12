@@ -9,12 +9,17 @@
 
 <body>
 
+<div class="foto foto5"></div>
+<div class="foto foto6"></div>
+<div class="foto foto7"></div>
+<div class="foto foto8"></div>
+
 <div class="container">
     <h1 class="header_text">
         😍🥺Sabía que dirías que sí Mi more mio. Milo me lo dijo ejjejej🫣🫣!
     </h1>
 
-    <p style="font-size: 1.3rem; color: white; position: relative; z-index: 10;">
+    <p style="font-size: 2rem; color: #FFD700; font-weight: bold; position: relative; z-index: 30;">
         ¡Elige nuestro premio hoy! 👇
     </p>
 
@@ -24,11 +29,6 @@
         <a href="paseo.html" class="option-btn">🎡 Un Paseo</a>
         <a href="noche.html" class="option-btn">🔥 Noche Caliente</a>
     </div>
-
-    <div class="foto foto5"></div>
-    <div class="foto foto6"></div>
-    <div class="foto foto7"></div>
-    <div class="foto foto8"></div>
 </div>
 
 <audio id="musica" loop autoplay>
@@ -40,25 +40,28 @@ document.addEventListener("DOMContentLoaded", function () {
     const fotos = document.querySelectorAll(".foto");
     let index = 0;
     
-    // Escondemos todas al inicio
-    fotos.forEach(f => f.style.opacity = "0");
+    // Función para limpiar opacidades
+    function ocultarTodas() {
+        fotos.forEach(f => {
+            f.style.opacity = "0";
+            f.style.zIndex = "-1"; // Las mandamos al fondo del todo
+        });
+    }
 
     function mostrarSiguiente() {
-        // Quitamos la anterior
-        fotos.forEach(f => f.style.opacity = "0");
-        // Mostramos la que sigue
+        ocultarTodas();
         if (fotos[index]) {
-            fotos[index].style.opacity = "1";
+            fotos[index].style.opacity = "0.4"; // Opacidad suave para que se lea el texto
+            fotos[index].style.zIndex = "-1";  // Mantenemos atrás
             index = (index + 1) % fotos.length;
         }
     }
 
+    // Iniciamos el ciclo
     mostrarSiguiente();
-    // Cada 1.5 segundos cambia la foto de fondo
-    setInterval(mostrarSiguiente, 1500);
+    setInterval(mostrarSiguiente, 3000); // 3 segundos para que no parpadee tan rápido
 });
 </script>
 
 </body>
 </html>
-
