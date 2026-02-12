@@ -105,10 +105,12 @@ h1 {
         width: 200px;
         height: 250px;
         border: 8px solid white;
+        pointer-events: none; /* ← evita que bloqueen clics */
     }
 
     .sticker {
         width: 50px;
+        pointer-events: none; /* ← evita bloqueo táctil */
     }
 
     /* POSICIONES PARA CELULAR */
@@ -116,6 +118,12 @@ h1 {
     .foto2 { top: 4%; right: 4%; }
     .foto3 { bottom: 4%; left: 4%; }
     .foto4 { bottom: 4%; right: 4%; }
+
+    /* BOTONES ENCIMA */
+    .buttons{
+        position: relative;
+        z-index: 10;
+    }
 
     /* SUBIR CONTENIDO */
     .container{
