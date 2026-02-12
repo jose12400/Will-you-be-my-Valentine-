@@ -43,8 +43,8 @@ body {
 /* POSICIONES */
 
 .foto5 {
-    top: 8%;       /* 8% desde arriba */
-    left: 15%;      /* 15% desde la izquierda */
+    top: 5%;       /* 5% desde arriba */
+    left: 10%;      /* 10% desde la izquierda */
     background-image: url("foto5.jpeg");
 }
 
