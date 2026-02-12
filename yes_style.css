@@ -1,4 +1,6 @@
-/* 1. FONDO GENERAL */
+/* =========================================
+   1. CONFIGURACIÓN DE PANTALLA Y FONDO
+   ========================================= */
 body {
     margin: 0;
     padding: 0;
@@ -9,52 +11,75 @@ body {
     align-items: center;
     min-height: 100vh;
     text-align: center;
-    overflow: hidden;
+    overflow: hidden; /* Evita que la página se mueva */
 }
 
-/* 2. LAS FOTOS (MÁXIMA NITIDEZ) */
+/* =========================================
+   2. ANIMACIÓN DE MOVIMIENTO (ZOOM LENTO)
+   ========================================= */
+@keyframes kenBurns {
+    from { transform: scale(1); }
+    to { transform: scale(1.15); } /* Zoom suave del 15% */
+}
+
+/* =========================================
+   3. FOTOS: NITIDEZ, CLARIDAD Y VIDA
+   ========================================= */
 .foto {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-size: cover; /* Cubre toda la pantalla */
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     z-index: 1; 
     opacity: 0;
-    transition: opacity 1.2s ease-in-out;
+    transition: opacity 1.5s ease-in-out; /* Transición elegante entre fotos */
     
-    /* AJUSTES DE NITIDEZ */
-    filter: brightness(0.9) contrast(1.1); /* Casi brillo natural y un toque de contraste */
-    pointer-events: none; 
+    /* NITIDEZ Y BRILLO TOTAL */
+    filter: brightness(1) contrast(1.05) !important; 
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    
+    pointer-events: none; /* Permite hacer clic a través de la foto */
 }
 
-/* 3. EL CONTENEDOR (TOTALMENTE INVISIBLE) */
+/* Solo la foto que se está mostrando hace el movimiento */
+.foto[style*="opacity: 1"] {
+    animation: kenBurns 12s linear infinite alternate;
+}
+
+/* =========================================
+   4. CONTENEDOR DE TEXTO (INVISIBLE)
+   ========================================= */
 .container {
     position: relative;
     z-index: 10;
     background: none; 
     padding: 20px;
     width: 95%;
-    max-width: 500px;
+    max-width: 480px;
 }
 
-/* 4. TEXTOS CON SOMBRA REFORZADA (Para que se lean sobre fotos claras) */
+/* =========================================
+   5. TEXTOS (DORADO CON BORDE NEGRO)
+   ========================================= */
 .header_text {
-    font-size: 2.6rem;
-    color: #FFD700; 
+    font-size: 2.5rem;
+    color: #FFD700; /* DORADO */
     text-transform: uppercase;
-    /* Sombras múltiples para crear un contorno negro y que la letra no se pierda */
-    text-shadow: 
-        2px 2px 0px #000,
-        -2px -2px 0px #000,
-        2px -2px 0px #000,
-        -2px 2px 0px #000,
-        0px 0px 15px rgba(0,0,0,1);
-    margin-bottom: 15px;
     font-weight: 900;
+    line-height: 1.2;
+    /* Borde negro 360° para legibilidad máxima */
+    text-shadow: 
+        -3px -3px 0 #000,  
+         3px -3px 0 #000,
+        -3px  3px 0 #000,
+         3px  3px 0 #000,
+         0px 0px 20px rgba(0,0,0,0.9);
+    margin-bottom: 15px;
 }
 
 p {
@@ -62,10 +87,16 @@ p {
     color: white !important;
     font-weight: bold;
     margin-bottom: 30px !important;
-    text-shadow: 2px 2px 8px rgba(0,0,0,1), 0px 0px 10px rgba(0,0,0,1);
+    text-shadow: 
+        -2px -2px 0 #000,  
+         2px -2px 0 #000,
+        -2px  2px 0 #000,
+         2px  2px 0 #000;
 }
 
-/* 5. LOS 4 BOTONES (ESTILO CUPONERA NITIDA) */
+/* =========================================
+   6. LOS 4 BOTONES (CUPONERA PREMIUM)
+   ========================================= */
 .options-menu {
     display: flex;
     flex-direction: column;
@@ -73,33 +104,39 @@ p {
 }
 
 .option-btn {
-    background: rgba(0, 0, 0, 0.8); /* Fondo oscuro sólido para el botón */
+    background: rgba(0, 0, 0, 0.85); /* Fondo oscuro para resaltar el texto */
     border: 3px solid #FFD700;
-    padding: 22px;
+    padding: 20px;
     border-radius: 20px;
     text-decoration: none;
     color: white !important;
-    font-size: 1.7rem;
+    font-size: 1.6rem;
     font-weight: 900;
     text-transform: uppercase;
-    transition: 0.3s;
-    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.5);
 }
 
 .option-btn:hover {
     background: #FFD700;
     color: black !important;
     transform: scale(1.05);
+    box-shadow: 0px 0px 20px rgba(255, 215, 0, 0.6);
 }
 
-/* RUTAS DE IMÁGENES */
+/* =========================================
+   7. RUTAS DE TUS IMÁGENES
+   ========================================= */
 .foto5 { background-image: url("foto5.jpeg"); }
 .foto6 { background-image: url("foto6.jpeg"); }
 .foto7 { background-image: url("foto7.jpeg"); }
 .foto8 { background-image: url("foto8.jpeg"); }
 
-/* AJUSTE PARA MÓVIL */
+/* =========================================
+   8. AJUSTE PARA CELULARES
+   ========================================= */
 @media (max-width: 768px) {
-    .header_text { font-size: 1.9rem; }
-    .option-btn { font-size: 1.4rem; padding: 18px; }
+    .header_text { font-size: 1.8rem; }
+    .option-btn { font-size: 1.3rem; padding: 18px; }
+    p { font-size: 1.3rem !important; }
 }
