@@ -1,41 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sabía que dirías que sí</title>
-    <link rel="stylesheet" href="styles.css"> <style>
-        /* Estilo para el menú de opciones */
-        .options-menu {
-            display: grid;
-            grid-template-columns: 1fr 1fr; /* Dos columnas */
-            gap: 15px;
-            margin-top: 30px;
-            z-index: 100; /* Para que esté por encima de las fotos */
-            position: relative;
-        }
-        .option-btn {
-            background: rgba(255, 255, 255, 0.15);
-            border: 2px solid white;
-            padding: 15px;
-            border-radius: 15px;
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: 0.3s;
-            backdrop-filter: blur(5px);
-        }
-        .option-btn:hover {
-            background: white;
-            color: #001524;
-            transform: scale(1.1);
-        }
-        .header_text {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="yes_style.css"> 
 </head>
 
 <body>
@@ -45,7 +14,9 @@
         😍🥺Sabía que dirías que sí Mi more mio. Milo me lo dijo ejjejej🫣🫣!
     </h1>
 
-    <p style="font-size: 1.3rem;">¡Elige nuestro premio hoy! 👇</p>
+    <p style="font-size: 1.3rem; color: white; position: relative; z-index: 10;">
+        ¡Elige nuestro premio hoy! 👇
+    </p>
 
     <div class="options-menu">
         <a href="viaje.html" class="option-btn">✈️ Un Viaje</a>
@@ -68,18 +39,26 @@
 document.addEventListener("DOMContentLoaded", function () {
     const fotos = document.querySelectorAll(".foto");
     let index = 0;
+    
+    // Escondemos todas al inicio
     fotos.forEach(f => f.style.opacity = "0");
 
     function mostrarSiguiente() {
+        // Quitamos la anterior
         fotos.forEach(f => f.style.opacity = "0");
-        fotos[index].style.opacity = "1";
-        index = (index + 1) % fotos.length;
+        // Mostramos la que sigue
+        if (fotos[index]) {
+            fotos[index].style.opacity = "1";
+            index = (index + 1) % fotos.length;
+        }
     }
 
     mostrarSiguiente();
+    // Cada 1.5 segundos cambia la foto de fondo
     setInterval(mostrarSiguiente, 1500);
 });
 </script>
 
 </body>
 </html>
+
