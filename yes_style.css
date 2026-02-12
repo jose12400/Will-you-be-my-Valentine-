@@ -2,79 +2,107 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #0d1b2a, #1b263b); /* azul noche */
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #001524, #1b263b); /* azul noche profundo */
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     text-align: center;
     overflow: hidden;
+    color: white;
 }
 
 /* ===== CONTAINER ===== */
 .container {
     position: relative;
     width: 100%;
-    max-width: 900px;
-    z-index: 2; /* para que el h1 quede encima de las fotos */
+    max-width: 600px;
+    z-index: 10; /* Encima de las fotos */
+    padding: 20px;
 }
 
-/* ===== H1 ROMÁNTICO ===== */
+/* ===== TITULO PARPADEANTE ===== */
 .header_text {
-    font-size: 60px;              /* más grande */
-    color: #ff6f61;               /* color cálido que resalte sobre azul noche */
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-    margin-bottom: 40px;
-    position: relative;
-    z-index: 2;
-    text-transform: uppercase;    /* convierte todo a mayúsculas */
-    animation: parpadeo 1s infinite; /* animación de parpadeo */
-    font-weight: bold;            /* más gruesa */
-    line-height: 1.2;             /* para que no se vea muy separada */
+    font-size: 2.5rem;
+    color: #ff6f61; /* Color coral cálido */
+    text-shadow: 2px 2px 15px rgba(0,0,0,0.7);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    animation: parpadeo 1.5s infinite;
+    font-weight: bold;
 }
 
-/* Animación de parpadeo */
 @keyframes parpadeo {
     0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
+    50% { opacity: 0.7; }
 }
 
-/* ===== FOTOS DISTRIBUIDAS POR TODA LA PANTALLA ===== */
+/* ===== MENÚ DE OPCIONES (NUEVO) ===== */
+.options-menu {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.option-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid white;
+    padding: 15px;
+    border-radius: 15px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    backdrop-filter: blur(8px);
+    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.option-btn:hover {
+    background: white;
+    color: #001524;
+    transform: scale(1.05);
+}
+
+/* ===== FOTOS ROTATIVAS (ARREGLADAS) ===== */
 .foto {
-    position: fixed; /* ahora se posicionan respecto a la pantalla completa */
-    width: 280px;
-    height: 350px;
-    border: 10px solid white;
-    border-radius: 20px;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centradas para que el JS las rote */
+    width: 320px;
+    height: 400px;
+    border: 8px solid white;
+    border-radius: 15px;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.5);
     background-size: cover;
     background-position: center;
-    transition: opacity 0.5s ease-in-out;
-    opacity: 0; /* inicialmente ocultas, se muestran con JS */
+    z-index: -1; /* Detrás de todo */
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
 }
 
-/* Distribución visual por la pantalla */
-.foto5 { top: 5%; left: 5%; background-image: url("foto5.jpeg"); }
-.foto6 { top: 30%; right: 10%; background-image: url("foto6.jpeg"); }
-.foto7 { bottom: 25%; left: 15%; background-image: url("foto7.jpeg"); }
-.foto8 { bottom: 10%; right: 20%; background-image: url("foto8.jpeg"); }
+/* RUTAS DE IMÁGENES (Asegúrate que sean .jpeg como pusiste antes) */
+.foto5 { background-image: url("foto5.jpeg"); }
+.foto6 { background-image: url("foto6.jpeg"); }
+.foto7 { background-image: url("foto7.jpeg"); }
+.foto8 { background-image: url("foto8.jpeg"); }
 
 /* ===== RESPONSIVE CELULAR ===== */
 @media (max-width: 768px) {
-
     .header_text {
-        font-size: 26px;
-        padding: 0 15px;
+        font-size: 1.8rem;
     }
 
     .foto {
-        width: 180px;
-        height: 240px;
+        width: 250px;
+        height: 320px;
     }
 
-    .foto5 { top: 5%; left: 5%; }
-    .foto6 { top: 20%; right: 5%; }
-    .foto7 { bottom: 15%; left: 10%; }
-    .foto8 { bottom: 5%; right: 10%; }
+    .options-menu {
+        grid-template-columns: 1fr; /* Una sola columna en cel para que no se vea apretado */
+        gap: 10px;
+    }
 }
