@@ -24,47 +24,42 @@ body {
     z-index: 1; 
     opacity: 0;
     transition: opacity 1.5s ease-in-out;
-    filter: brightness(0.6); /* No tan oscuras para que se vean bien */
-    pointer-events: none; /* Esto permite que hagas click en los botones */
+    filter: brightness(0.7); /* Fotos más claras */
+    pointer-events: none; 
 }
 
-/* 3. EL CONTENEDOR (EFECTO VIDRIO TRANSULCIDO) */
+/* 3. EL CONTENEDOR (AHORA ES INVISIBLE) */
 .container {
     position: relative;
     z-index: 10;
-    /* Fondo muy transparente para que NO tape las fotos */
-    background: rgba(0, 0, 0, 0.4); 
-    padding: 30px;
-    border-radius: 25px;
-    /* Este efecto hace que se vea como vidrio y no tape todo */
-    backdrop-filter: blur(10px); 
-    -webkit-backdrop-filter: blur(10px);
-    
-    width: 85%;
-    max-width: 420px;
-    border: 2px solid rgba(255, 215, 0, 0.3); /* Bordecito dorado fino */
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
+    background: none; /* ELIMINAMOS EL FONDO NEGRO AQUÍ */
+    padding: 20px;
+    width: 90%;
+    max-width: 500px;
+    border: none; /* ELIMINAMOS BORDES */
+    box-shadow: none; /* ELIMINAMOS SOMBRAS DEL CUADRO */
 }
 
-/* 4. TEXTOS (DORADO Y BLANCO) */
+/* 4. TEXTOS (CON SOMBRA PARA QUE NO SE PIERDAN EN LA FOTO) */
 .header_text {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
     color: #FFD700; /* DORADO */
     text-transform: uppercase;
-    text-shadow: 2px 2px 10px rgba(0,0,0,1);
-    margin-bottom: 15px;
+    /* Sombra negra fuerte para que las letras floten y se lean sobre cualquier foto */
+    text-shadow: 3px 3px 10px rgba(0,0,0,1), -2px -2px 10px rgba(0,0,0,1);
+    margin-bottom: 20px;
     font-weight: 900;
 }
 
 p {
-    font-size: 1.4rem !important;
+    font-size: 1.6rem !important;
     color: white !important;
     font-weight: bold;
-    margin-bottom: 25px !important;
-    text-shadow: 1px 1px 5px black;
+    margin-bottom: 35px !important;
+    text-shadow: 2px 2px 8px rgba(0,0,0,1);
 }
 
-/* 5. LOS 4 BOTONES (CUPONERAS) */
+/* 5. LOS 4 BOTONES (MANTENEMOS EL NEGRO AQUÍ PARA EL CLIC) */
 .options-menu {
     display: flex;
     flex-direction: column;
@@ -72,17 +67,19 @@ p {
 }
 
 .option-btn {
-    background: rgba(0, 0, 0, 0.6); /* Botón semitransparente */
-    border: 2px solid #FFD700;
-    padding: 20px;
-    border-radius: 15px;
+    /* Fondo negro sólido o muy oscuro para que resalten */
+    background: rgba(0, 0, 0, 0.85); 
+    border: 3px solid #FFD700;
+    padding: 22px;
+    border-radius: 20px;
     text-decoration: none;
     color: white !important;
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-size: 1.6rem;
+    font-weight: 900;
     text-transform: uppercase;
     transition: 0.3s;
     cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
 }
 
 .option-btn:hover {
@@ -99,7 +96,6 @@ p {
 
 /* AJUSTE PARA MÓVIL */
 @media (max-width: 768px) {
-    .header_text { font-size: 1.6rem; }
-    .container { padding: 20px; }
-    .option-btn { font-size: 1.2rem; padding: 15px; }
+    .header_text { font-size: 1.8rem; }
+    .option-btn { font-size: 1.3rem; padding: 18px; }
 }
