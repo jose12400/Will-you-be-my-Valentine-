@@ -3,14 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuestro Viaje ✈️</title>
+    <title>Nuestro Viaje ✈️🌍</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Efecto de suavizado para el cambio de imagen */
+        #foto-viaje {
+            transition: opacity 0.5s ease-in-out;
+        }
+    </style>
 </head>
 <body style="background-color: #001524; color: white; text-align: center; padding: 40px; font-family: sans-serif;">
-    <h1>✈️ ¡Nos vamos de viaje, more!</h1>
-    <p style="font-size: 1.3rem;">Prepara las maletas porque nos escapamos a donde tú quieras. <br>¡Tú y yo contra el mundo! 🌍❤️</p>
-    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJmZzRyeGZ6ZzRyeGZ6ZzRyeGZ6ZzRyeGZ6ZzRyeGZ6ZzR5JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/vARasl6iR2YV2/giphy.gif" style="width: 280px; border-radius: 20px; margin: 20px 0; border: 2px solid white;">
+
+    <h1>✈️ Nuestra Próxima Aventura</h1>
+    <p style="font-size: 1.3rem;">El destino no importa, siempre que sea contigo. <br>¡A coleccionar momentos, more mío! 🌍📸</p>
+
+    <img id="foto-viaje" src="viaje1.jpeg" style="width: 280px; height: 280px; object-fit: cover; border-radius: 20px; margin: 20px 0; border: 2px solid white;">
+
     <br><br>
     <a href="yes_page.html" style="color: #4CAF50; font-weight: bold; text-decoration: none; border: 1px solid #4CAF50; padding: 10px 20px; border-radius: 10px;">⬅️ Cambiar de opinión</a>
-</body>
-</html>
+
+    <script>
+        const imagenViaje = document.getElementById('foto-viaje');
+        // Lista de tus fotos de viaje
+        const fotosViaje = ['viaje1.jpeg', 'viaje2.jpeg', 'viaje3.jpeg']; 
+        let v = 0;
+
+        setInterval(() => {
+            // Efecto de desvanecer (fade out)
+            imagenViaje.style.opacity = 0;
+
+            setTimeout(() => {
+                v++;
+                if (v >= fotosViaje.length) {
+                    v =
