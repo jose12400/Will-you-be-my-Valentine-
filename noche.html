@@ -3,14 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuestra Noche 🔥</title>
+    <title>Nuestra Noche ✨🌙</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Efecto de suavizado para el cambio de imagen */
+        #foto-noche {
+            transition: opacity 0.5s ease-in-out;
+        }
+    </style>
 </head>
 <body style="background-color: #001524; color: white; text-align: center; padding: 40px; font-family: sans-serif;">
-    <h1>🔥 Noche Caliente... 😏</h1>
-    <p style="font-size: 1.3rem;">Prepárate more, que hoy no dormimos... <br>Te haré pium pium pero de otra forma. 😉🌶️</p>
-    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJmZzRyeGZ6ZzRyeGZ6ZzRyeGZ6ZzRyeGZ6ZzRyeGZ6ZzR5JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/H99r2qzSUI6Z2/giphy.gif" style="width: 280px; border-radius: 20px; margin: 20px 0; border: 2px solid white;">
+
+    <h1>🌙 Nuestra Noche Especial</h1>
+    <p style="font-size: 1.3rem;">Bajo las estrellas o viendo pelis, pero siempre juntos. <br>¡La mejor noche de todas, more mío! 🍿✨</p>
+
+    <img id="foto-noche" src="noche1.jpeg" style="width: 280px; height: 280px; object-fit: cover; border-radius: 20px; margin: 20px 0; border: 2px solid white;">
+
     <br><br>
     <a href="yes_page.html" style="color: #4CAF50; font-weight: bold; text-decoration: none; border: 1px solid #4CAF50; padding: 10px 20px; border-radius: 10px;">⬅️ Cambiar de opinión</a>
+
+    <script>
+        const imagenNoche = document.getElementById('foto-noche');
+        // Lista de tus fotos de noche
+        const fotosNoche = ['noche1.jpeg', 'noche2.jpeg', 'noche3.jpeg']; 
+        let n = 0;
+
+        setInterval(() => {
+            // Efecto de desvanecer
+            imagenNoche.style.opacity = 0;
+
+            setTimeout(() => {
+                n++;
+                if (n >= fotosNoche.length) {
+                    n = 0;
+                }
+                imagenNoche.src = fotosNoche[n];
+                // Efecto de aparecer
+                imagenNoche.style.opacity = 1;
+            }, 500); 
+
+        }, 1500); // Cambio cada 1.5 segundos
+    </script>
+
 </body>
 </html>
