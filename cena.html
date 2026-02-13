@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuestra Cena 🍴</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilo para el efecto de desvanecimiento */
+        #foto-cena {
+            transition: opacity 0.5s ease-in-out;
+        }
+        .oculto {
+            opacity: 0;
+        }
+    </style>
 </head>
 <body style="background-color: #001524; color: white; text-align: center; padding: 40px; font-family: sans-serif;">
 
@@ -18,17 +27,27 @@
 
     <script>
         const imagen = document.getElementById('foto-cena');
-        // Aquí están tus 4 archivos .jpeg
-        const fotos = ['cena1.jpeg', 'cena2.jpeg', 'cena3.jpeg', 'cena4.jpeg']; 
+        // Lista corregida a 3 fotos
+        const fotos = ['cena1.jpeg', 'cena2.jpeg', 'cena3.jpeg']; 
         let indice = 0;
 
         setInterval(() => {
-            indice++;
-            if (indice >= fotos.length) {
-                indice = 0; // Vuelve a la primera foto
-            }
-            imagen.src = fotos[indice];
-        }, 1500); // 1.5 segundos
+            // 1. Empezamos a ocultar la imagen
+            imagen.style.opacity = 0;
+
+            setTimeout(() => {
+                // 2. Cambiamos la foto mientras está invisible
+                indice++;
+                if (indice >= fotos.length) {
+                    indice = 0;
+                }
+                imagen.src = fotos[indice];
+
+                // 3. Volvemos a mostrar la imagen
+                imagen.style.opacity = 1;
+            }, 500); // Medio segundo dura la transición a invisible
+
+        }, 1500); // Cada 1.5 segundos cambia
     </script>
 
 </body>
