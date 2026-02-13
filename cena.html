@@ -7,10 +7,29 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body style="background-color: #001524; color: white; text-align: center; padding: 40px; font-family: sans-serif;">
+
     <h1>🍴 Una Cena Especial</h1>
     <p style="font-size: 1.3rem;">Tú eliges el lugar y yo me encargo de que sea la noche más romántica. <br>¡Provecho, more mío! 🍷🥂</p>
-    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHJmZzRyeGZ6ZzRyeGZ6ZzRyeGZ6ZzRyeGZ6ZzRyeGZ6ZzR5JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/m4j8S7A3PqJmE/giphy.gif" style="width: 280px; border-radius: 20px; margin: 20px 0; border: 2px solid white;">
+
+    <img id="foto-cena" src="cena1.jpeg" style="width: 280px; height: 280px; object-fit: cover; border-radius: 20px; margin: 20px 0; border: 2px solid white;">
+
     <br><br>
     <a href="yes_page.html" style="color: #4CAF50; font-weight: bold; text-decoration: none; border: 1px solid #4CAF50; padding: 10px 20px; border-radius: 10px;">⬅️ Cambiar de opinión</a>
+
+    <script>
+        const imagen = document.getElementById('foto-cena');
+        // Aquí están tus 4 archivos .jpeg
+        const fotos = ['cena1.jpeg', 'cena2.jpeg', 'cena3.jpeg', 'cena4.jpeg']; 
+        let indice = 0;
+
+        setInterval(() => {
+            indice++;
+            if (indice >= fotos.length) {
+                indice = 0; // Vuelve a la primera foto
+            }
+            imagen.src = fotos[indice];
+        }, 1500); // 1.5 segundos
+    </script>
+
 </body>
 </html>
