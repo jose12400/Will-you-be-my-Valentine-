@@ -6,9 +6,9 @@
     <title>Nuestro Viaje ✈️🌍</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Efecto de suavizado para el cambio de imagen */
         #foto-viaje {
             transition: opacity 0.5s ease-in-out;
+            opacity: 1;
         }
     </style>
 </head>
@@ -24,15 +24,25 @@
 
     <script>
         const imagenViaje = document.getElementById('foto-viaje');
-        // Lista de tus fotos de viaje
         const fotosViaje = ['viaje1.jpeg', 'viaje2.jpeg', 'viaje3.jpeg']; 
         let v = 0;
 
         setInterval(() => {
-            // Efecto de desvanecer (fade out)
+            // 1. Desvanecer
             imagenViaje.style.opacity = 0;
 
             setTimeout(() => {
+                // 2. Cambiar fuente
                 v++;
                 if (v >= fotosViaje.length) {
-                    v =
+                    v = 0;
+                }
+                imagenViaje.src = fotosViaje[v];
+                
+                // 3. Reaparecer
+                imagenViaje.style.opacity = 1;
+            }, 500); // Espera a que termine de ocultarse para cambiar la foto
+        }, 2000); // Cambia cada 2 segundos para que de tiempo a verlas
+    </script>
+</body>
+</html>
