@@ -3,14 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuestro Paseo 🎡</title>
+    <title>Nuestro Paseo 🚶‍♂️✨</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Efecto de suavizado para el cambio de imagen */
+        #foto-paseo {
+            transition: opacity 0.5s ease-in-out;
+        }
+    </style>
 </head>
 <body style="background-color: #001524; color: white; text-align: center; padding: 40px; font-family: sans-serif;">
-    <h1>🎡 Un Paseo de la Mano</h1>
-    <p style="font-size: 1.3rem;">No importa a dónde vayamos, mientras sea caminando contigo. <br>¡Disfrutemos el momento! ✨🍭</p>
-    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJmZzRyeGZ6ZzRyeGZ6ZzRyeGZ6ZzRyeGZ6ZzRyeGZ6ZzR5JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/117o6x8yZH7Nja/giphy.gif" style="width: 280px; border-radius: 20px; margin: 20px 0; border: 2px solid white;">
+
+    <h1>✨ Un Paseo Inolvidable</h1>
+    <p style="font-size: 1.3rem;">Cualquier camino es perfecto si lo camino a tu lado. <br>¡Disfrutemos el recorrido, more mío! 🌿💫</p>
+
+    <img id="foto-paseo" src="paseo1.jpeg" style="width: 280px; height: 280px; object-fit: cover; border-radius: 20px; margin: 20px 0; border: 2px solid white;">
+
     <br><br>
     <a href="yes_page.html" style="color: #4CAF50; font-weight: bold; text-decoration: none; border: 1px solid #4CAF50; padding: 10px 20px; border-radius: 10px;">⬅️ Cambiar de opinión</a>
+
+    <script>
+        const imagenPaseo = document.getElementById('foto-paseo');
+        // Lista de tus fotos de paseo
+        const fotosPaseo = ['paseo1.jpeg', 'paseo2.jpeg', 'paseo3.jpeg']; 
+        let i = 0;
+
+        setInterval(() => {
+            // Efecto de desvanecer (fade out)
+            imagenPaseo.style.opacity = 0;
+
+            setTimeout(() => {
+                i++;
+                if (i >= fotosPaseo.length) {
+                    i = 0;
+                }
+                imagenPaseo.src = fotosPaseo[i];
+                // Efecto de aparecer (fade in)
+                imagenPaseo.style.opacity = 1;
+            }, 500); 
+
+        }, 1500); // Cambio cada 1.5 segundos
+    </script>
+
 </body>
 </html>
